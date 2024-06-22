@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sort Visulization</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="Nav-container">
+        <h2 class="title" onclick="window.location.reload()"> Sorting Visulization </h2>
+        <div class="navbar" id="navbar">
+            <a href="" id="random" onclick="RenderScreen()">Generate Array</a>
+            <span class="options" >
+                <select name="Select sort Algorithm" id="menu" class="algo-menu">
+                    <option value="0">Choose Algorithm</option>
+                    <option value="1">Bubble</option>
+                    <option value="2">Selection</option>
+                    <option value="3">Insertion</option>
+                    <option value="4">Merge</option>
+                    <option value="5">Quick</option>
+                </select>
+            </span >
+            <span class="options">
+                    <select name="Select array size" id="menu" class="size-menu">
+                        <option value="5">5</option>
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                        <option value="20">20</option>
+                        <option value="30">30</option>
+                        <option value="40">40</option>
+                        <option value="50">50</option>
+                        <option value="60">60</option>
+                        <option value="70">70</option>
+                        <option value="80">80</option>
+                        <option value="90">90</option>
+                        <option value="100">100</option>
+                    </select>
+            </span>
+            <span class="options">
+                    <select name="Speed of Visulization" id="menu" class="speed-menu">
+                        <option value="0">Speed</option>
+                        <option value="0.5">0.5x</option>
+                        <option value="0.75">0.75x</option>
+                        <option value="1">Normal</option>
+                        <option value="2">2x</option>
+                        <option value="4">4x</option>
+                    </select>
+            </span>
+            <a class="start">Sort</a>
+            <a  class="icon"></a>
+        </div>
+    </div>
+   
+    <div class="center">
+        <div class="array"></div>
+    </div>
+    <div class="generatedArr"></div>
+    <script src="./app.js"></script>
+    <script src="./component/helper.js"></script>
+    <script src="./component/Algorithm.js"></script>
+</body>
+</html>
