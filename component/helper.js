@@ -3,8 +3,12 @@ class Helper {
         this.time = parseInt(400/time);
         this.list = list ;
     }
-    mark= async(index)=>{
-        this.list[index].setAttribute("class" , "cell current");
+    mark1= async(index)=>{
+        this.list[index].setAttribute("class" , "cell current1");
+
+    }
+    mark2= async(index)=>{
+        this.list[index].setAttribute("class" , "cell current2");
 
     }
     placed= async(index)=>{

@@ -8,9 +8,9 @@ class sortAlgorithms{
     }
     BubbleSort =async ()=>{
         for (let i=0;i<this.size -1;i++){
-            for(let j=0;j<this.size-1;j++){
-                await this.help.mark(j);
-                await this.help.mark(j+1);
+            for(let j=0;j<this.size-1-i;j++){
+                await this.help.mark1(j);
+                await this.help.mark2(j+1);
                 if(await this.help.compare(j,j+1)){
                     await this.help.swap(j,j+1);
                 }
@@ -27,13 +27,14 @@ class sortAlgorithms{
         for (let i=0;i<this.size -1;i++){
             let j=i;
             while (j>=0 && await this.help.compare(j,j+1)){
-                await this.help.mark(j);
-                await this.help.mark(j+1);
+                await this.help.mark1(j);
+                await this.help.mark2(j+1);
                 await this.help.swap(j,j+1);
                 await this.help.unmark(j);
                 await this.help.unmark(j+1);
                 j-=1;
             }
+            await this.help.markspl(i);
         }
         for (let counter =0;counter<this.size;counter){
             this.list[counter].setAttribute("class","cell done");
@@ -42,22 +43,26 @@ class sortAlgorithms{
     SelectionSort = async ()=>{
         for(let i=0;i<this.size;i++){
             let minINdex =i;
-            for(let j=i;j<this.size ;j++){
-                await this.help.markspl(minINdex);
-                await this.help.mark(j);
+            await this.help.mark2(i);
+            for(let j=i+1;j<this.size ;j++){
+                // await this.help.markspl(minINdex);
+                await this.help.mark1(j);
                 if(await this.help.compare(minINdex,j)){
-                    await this.help.unmark(minINdex);
+                    // await this.help.unmark(minINdex);
                     minINdex =j;
                 }
                 await this.help.unmark(j);
                 await this.help.markspl(minINdex);
             }
-            await this.help.mark(minINdex);
-            await this.help.mark(i);
+            await this.help.markspl(minINdex);
+            // await this.help.mark1(i);
+            await this.help.unmark(i);
             await this.help.pause();
             await this.help.swap(minINdex,i);
             await this.help.unmark(minINdex);
+            await this.help.placed(i);
             this.list[i].setAttribute("class","cell done");
+            this.list[i].setAttribute("class","cell placed");
 
         }
     }
